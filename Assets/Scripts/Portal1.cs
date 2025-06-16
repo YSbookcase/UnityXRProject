@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Portal : MonoBehaviour
+public class Portal1 : MonoBehaviour
 {
     [Header("자식 컴포넌트 참조")]
     [SerializeField] private Transform portalView;      // Quad 등

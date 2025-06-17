@@ -89,7 +89,7 @@ public class AudioManager : MonoBehaviour
         SceneBgmData data = sceneBgmDataList.Find(d => d.sceneName == sceneName);
         if (data != null)
         {
-            Debug.Log($"{sceneName}이 리스트에 들어갔습니다.");
+            //Debug.Log($"{sceneName}이 리스트에 들어갔습니다.");
             _currentBgmList = data.bgmList;
             _currentBgmIndex = 0;
         }

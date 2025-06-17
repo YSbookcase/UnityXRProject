@@ -33,7 +33,7 @@ public class SystemUI : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("[SystemUI] OnEnable »£√‚µ ");
+        //Debug.Log("[SystemUI] OnEnable »£√‚µ ");
         GameManager.Instance.RegisterUI(this);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -60,7 +60,7 @@ public class SystemUI : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log($"[SystemUI] OnSceneLoaded »£√‚µ  - æ¿: {scene.name}");
+        //Debug.Log($"[SystemUI] OnSceneLoaded »£√‚µ  - æ¿: {scene.name}");
 
         if (scene.name == "MainGame")
         {
@@ -102,7 +102,7 @@ public class SystemUI : MonoBehaviour
         if (gameOverPanel) gameOverPanel.SetActive(false);
         if (victoryPanel) victoryPanel.SetActive(false);
 
-        Debug.Log($"[SystemUI] GameOverPanel «“¥Á ªÛ≈¬: {(gameOverPanel == null ? "null" : gameOverPanel.name)}");
+        //Debug.Log($"[SystemUI] GameOverPanel «“¥Á ªÛ≈¬: {(gameOverPanel == null ? "null" : gameOverPanel.name)}");
     }
 
     private void InitializeUI()

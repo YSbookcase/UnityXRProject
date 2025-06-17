@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d201da3103782d4ba8881bac567e26a, type: 3}
   m_Name: MainGameReadySceneBgmData 1
   m_EditorClassIdentifier: 
-  sceneName: MainTitle
+  sceneName: Victory
   bgmList:
-  - {fileID: 8300000, guid: 01fffe99593abcb4c8981ab0b4fe5ae0, type: 3}
+  - {fileID: 8300000, guid: 133d8034cdb76554cb1fb43af0f79ad5, type: 3}

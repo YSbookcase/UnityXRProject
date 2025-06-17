@@ -116,9 +116,9 @@ public class SystemUI : MonoBehaviour
         }
 
         CloseMenu();
+        //Time.timeScale = 0f;
 
-       
-       
+
     }
 
     
@@ -135,10 +135,10 @@ public class SystemUI : MonoBehaviour
     
     
 
-    public void StartGame(string sceneName)
+    public void StartGame()
     {
-        ResumeGame();
-        GameManager.Instance.LoadScene(sceneName);
+        //ResumeGame();
+       
     }
 
     public void ExitGame()
@@ -173,7 +173,7 @@ public class SystemUI : MonoBehaviour
         if (menuPanel == null) return;
         isMenuOpen = true;
         menuPanel.SetActive(true);
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
     }
 
     public void CloseMenu()
@@ -181,7 +181,7 @@ public class SystemUI : MonoBehaviour
         if (menuPanel == null) return;
         isMenuOpen = false;
         menuPanel.SetActive(false);
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
     }
 
     private void ResumeGame() => Time.timeScale = 1f;

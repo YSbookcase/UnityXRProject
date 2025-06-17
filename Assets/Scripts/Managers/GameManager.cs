@@ -63,6 +63,9 @@ public class GameManager : Singleton<GameManager>
     private bool isGameOver = false;
     public bool IsGameOver => isGameOver;
 
+    private bool isVictory = false;
+    public bool IsVictory => isVictory;
+
     public void GameOver()
     {
 
@@ -83,7 +86,7 @@ public class GameManager : Singleton<GameManager>
     {
         Debug.Log("[GameManager] Victory È£ÃâµÊ");
 
-     
+        isVictory = true;
 
         UI?.ShowVictoryUI(); // ½Â¸® UI Ç¥½Ã µî
     }

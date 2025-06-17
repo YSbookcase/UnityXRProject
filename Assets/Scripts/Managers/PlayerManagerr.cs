@@ -7,6 +7,13 @@ public class PlayerManager : MonoBehaviour
 {
     public ObservableProperty<int> Money { get; private set; } = new(0);
 
+    [SerializeField] private Animator _animator;
+    [SerializeField] private Transform _trackingRoot; // 이동 기준점 (예: XR Origin 또는 플레이어 루트)
+
+    private Vector3 _lastPosition;
+    private float _moveThreshold = 0.01f;
+
+
     //[SerializeField] private SelectionData selectionData;
 
     //public List<UnitData> SelectedUnits { get; private set; } = new();
@@ -17,9 +24,18 @@ public class PlayerManager : MonoBehaviour
        
     }
 
+    private void Start()
+    {
+        if (_trackingRoot == null)
+            _trackingRoot = transform;
+
+        _lastPosition = _trackingRoot.position;
+    }
+
 
     private void Update()
     {
+        MoveDetection();
         
         //if(Input.GetKeyDown(KeyCode.M))
         //{
@@ -58,4 +74,17 @@ public class PlayerManager : MonoBehaviour
         }
         return false;
     }
+
+    public void MoveDetection()
+    {
+        Vector3 currentPosition = _trackingRoot.position;
+        float distanceMoved = Vector3.Distance(currentPosition, _lastPosition);
+
+        bool isMoving = distanceMoved > _moveThreshold;
+
+        _animator.SetBool("IsMove", isMoving);
+
+        _lastPosition = currentPosition;
+    }
+
 }

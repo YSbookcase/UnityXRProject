@@ -15,7 +15,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private SFXController _sfxPrefab;
 
     private int _currentBgmIndex = 0;
-  
+
+    private bool _hasPlayedVictoryBgm = false;
+
     private void Awake() => Init();
 
 
@@ -34,6 +36,13 @@ public class AudioManager : MonoBehaviour
     {
 
         if (GameManager.Instance != null && GameManager.Instance.IsGameOver) return;
+
+        if (GameManager.Instance != null && GameManager.Instance.IsVictory && !_hasPlayedVictoryBgm)
+        {
+            SetBgmListForScene("Victory");
+            PlayCurrentBgm();
+            _hasPlayedVictoryBgm = true;
+        }
 
         // 현재 BGM이 끝났으면 다음 트랙으로
         if (!_bgmSource.isPlaying && _currentBgmList.Count > 0)
@@ -80,6 +89,7 @@ public class AudioManager : MonoBehaviour
         SceneBgmData data = sceneBgmDataList.Find(d => d.sceneName == sceneName);
         if (data != null)
         {
+            //Debug.Log($"{sceneName}이 리스트에 들어갔습니다.");
             _currentBgmList = data.bgmList;
             _currentBgmIndex = 0;
         }

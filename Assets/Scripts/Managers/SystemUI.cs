@@ -33,7 +33,7 @@ public class SystemUI : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("[SystemUI] OnEnable È£ÃâµÊ");
+        //Debug.Log("[SystemUI] OnEnable È£ÃâµÊ");
         GameManager.Instance.RegisterUI(this);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -60,7 +60,7 @@ public class SystemUI : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log($"[SystemUI] OnSceneLoaded È£ÃâµÊ - ¾À: {scene.name}");
+        //Debug.Log($"[SystemUI] OnSceneLoaded È£ÃâµÊ - ¾À: {scene.name}");
 
         if (scene.name == "MainGame")
         {
@@ -102,7 +102,7 @@ public class SystemUI : MonoBehaviour
         if (gameOverPanel) gameOverPanel.SetActive(false);
         if (victoryPanel) victoryPanel.SetActive(false);
 
-        Debug.Log($"[SystemUI] GameOverPanel ÇÒ´ç »óÅÂ: {(gameOverPanel == null ? "null" : gameOverPanel.name)}");
+        //Debug.Log($"[SystemUI] GameOverPanel ÇÒ´ç »óÅÂ: {(gameOverPanel == null ? "null" : gameOverPanel.name)}");
     }
 
     private void InitializeUI()
@@ -116,9 +116,9 @@ public class SystemUI : MonoBehaviour
         }
 
         CloseMenu();
+        //Time.timeScale = 0f;
 
-       
-       
+
     }
 
     
@@ -135,10 +135,10 @@ public class SystemUI : MonoBehaviour
     
     
 
-    public void StartGame(string sceneName)
+    public void StartGame()
     {
-        ResumeGame();
-        GameManager.Instance.LoadScene(sceneName);
+        //ResumeGame();
+       
     }
 
     public void ExitGame()
@@ -173,7 +173,7 @@ public class SystemUI : MonoBehaviour
         if (menuPanel == null) return;
         isMenuOpen = true;
         menuPanel.SetActive(true);
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
     }
 
     public void CloseMenu()
@@ -181,7 +181,7 @@ public class SystemUI : MonoBehaviour
         if (menuPanel == null) return;
         isMenuOpen = false;
         menuPanel.SetActive(false);
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
     }
 
     private void ResumeGame() => Time.timeScale = 1f;
